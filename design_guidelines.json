@@ -1,0 +1,160 @@
+{
+  "theme_overview": {
+    "name": "Hybrid Spiritual Heritage",
+    "description": "A premium, elegant, trustworthy Indian travel-company design. The hero section is dark navy with gold accents, peacock feather motifs, and ornate divine frames featuring 'Radhe Radhe' spiritual tagline. It transitions gracefully into a clean, well-lit content area with soft shadows, rounded corners, and deep navy text. It must not look like a generic AI template.",
+    "mode": "light",
+    "hero_theme": "dark"
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Playfair Display",
+      "body": "Outfit",
+      "accent": "Great Vibes"
+    },
+    "scale": {
+      "h1": "text-5xl md:text-6xl+ font-heading tracking-tight",
+      "h2": "text-3xl md:text-4xl font-heading tracking-tight",
+      "h3": "text-xl md:text-2xl font-heading",
+      "body": "text-base font-body leading-relaxed",
+      "accent": "text-2xl md:text-4xl font-accent tracking-widest text-gold-500"
+    },
+    "rules": [
+      "NEVER use Inter, Roboto, Lato, or Open Sans.",
+      "Ensure H1/H2 have tight tracking (tracking-tight) to enhance the elegant Serif feel.",
+      "Use the 'accent' font strictly for the 'Radhe Radhe' tagline, 'Tours and Travels' flourishes, or subtle decorative dividers.",
+      "Body text should be highly legible with leading-relaxed."
+    ]
+  },
+  "colors": {
+    "primary": {
+      "dark": "#0B132B",
+      "light": "#1C2541"
+    },
+    "accent": {
+      "gold": "#D4AF37",
+      "goldLight": "#F3E5AB",
+      "goldDark": "#997A00"
+    },
+    "background": {
+      "dark": "#050A1F",
+      "light": "#F8F9FA",
+      "pureWhite": "#FFFFFF"
+    },
+    "text": {
+      "onDark": "#F8F9FA",
+      "onLight": "#0B132B",
+      "mutedOnLight": "#4A5568",
+      "mutedOnDark": "#A0AEC0"
+    },
+    "utility": {
+      "success": "#2D6A4F",
+      "warning": "#E67E22",
+      "error": "#C53030"
+    }
+  },
+  "layouts": {
+    "spacing_philosophy": "Generous. Use p-8, p-12, p-16, p-24 to create breathing room.",
+    "grids": {
+      "bento_marketing": "grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-8 to gap-12 with asymmetrical spanning.",
+      "bento_dashboard": "grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 with dense packing.",
+      "cards": "Subtle roundness (rounded-2xl) with soft ambient shadows on light backgrounds. On dark backgrounds, use 1px solid gold/white opacity borders."
+    },
+    "hero_section": {
+      "background": "Dark Navy with a subtle radial gradient or texture overlay.",
+      "overlay": "bg-gradient-to-b from-black/60 via-black/40 to-transparent",
+      "content_alignment": "Centered for the main spiritual hero to emphasize divine symmetry, but transitioning to left-aligned for content sections below.",
+      "decorations": "Gold ornate dividers, subtle peacock feather imagery blended into the background corners."
+    }
+  },
+  "visual_enhancers": {
+    "shadows": "Soft, diffused, multi-layered shadows on light cards. Example: shadow-[0_8px_30px_rgb(0,0,0,0.04)].",
+    "borders": "Use border-gold-500/20 for delicate separations in dark mode. Use border-slate-200 in light mode.",
+    "transitions": "Smooth transitions on hover: 'transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-xl'.",
+    "glassmorphism": "Used only for sticky nav or floating booking widgets over the hero. Must use backdrop-blur-xl with a 1px inner border for optical clarity.",
+    "dividers": "Use custom SVG gold ornamental dividers between major sections instead of flat straight lines."
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#D4AF37] text-[#0B132B] font-semibold rounded-full px-8 py-3 hover:bg-[#F3E5AB] transition-all",
+      "secondary": "border-2 border-[#D4AF37] text-[#D4AF37] rounded-full px-8 py-3 hover:bg-[#D4AF37]/10 transition-all (On dark bg)",
+      "outlineDark": "border-2 border-[#0B132B] text-[#0B132B] rounded-full px-8 py-3 hover:bg-[#0B132B] hover:text-white transition-all (On light bg)"
+    },
+    "cards": {
+      "fleet": "Clean white background, high-quality vehicle image, pill-shaped tags for specs (AC, Luggage, Seats), deep navy title, prominent CTA.",
+      "destination": "Image-first with gradient overlay at the bottom. Title in Playfair Display. Hover effect zooms the image slightly.",
+      "admin_widget": "Flat solid surfaces, crisp 1px borders, left-aligned text, clear data hierarchy. No glassmorphism in admin."
+    },
+    "booking_widget": {
+      "style": "Floating glass card overlapping the dark hero and the light section below it. Highly structured inputs using custom Shadcn forms. Clear steps."
+    }
+  },
+  "motion": {
+    "page_load": "Staggered fade-up for hero elements.",
+    "scroll": "Use Framer Motion for subtle fade-in-up as the user scrolls into light content sections.",
+    "hover": "Slight lift (-translate-y-1) and shadow expansion for clickable cards."
+  },
+  "images": {
+    "hero_decorations": [
+      {
+        "category": "Peacock Feather Motif",
+        "url": "https://images.pexels.com/photos/4994514/pexels-photo-4994514.jpeg",
+        "description": "Macro peacock feather for subtle corner or background blending in the dark hero."
+      }
+    ],
+    "destinations": [
+      {
+        "category": "Agra / Taj Mahal",
+        "url": "https://images.unsplash.com/photo-1587135941948-670b381f08ce",
+        "description": "The Taj Mahal in Agra under a warm golden hour sky"
+      },
+      {
+        "category": "Delhi / India Gate",
+        "url": "https://images.pexels.com/photos/4143959/pexels-photo-4143959.jpeg",
+        "description": "A captivating view through India Gate's arch at sunset."
+      },
+      {
+        "category": "Vrindavan / Mathura Temples",
+        "url": "https://images.pexels.com/photos/35466438/pexels-photo-35466438.jpeg",
+        "description": "A beautifully detailed white marble temple with intricate carvings and domed architecture."
+      },
+      {
+        "category": "Prem Mandir / Krishna Janmabhoomi",
+        "url": "https://images.unsplash.com/photo-1780681426329-bdf2961265d5",
+        "description": "Ornate white temple with steps under a clear blue sky"
+      }
+    ],
+    "fleet": [
+      {
+        "category": "Sedan (Aura)",
+        "url": "https://images.unsplash.com/photo-1623869675781-80aa31012a5a",
+        "description": "White sedan car on road"
+      },
+      {
+        "category": "SUV (Ertiga)",
+        "url": "https://images.unsplash.com/photo-1758223725156-ee49cc327a46",
+        "description": "White SUV car driving on highway"
+      },
+      {
+        "category": "Van (Eeco)",
+        "url": "https://images.pexels.com/photos/15549900/pexels-photo-15549900.jpeg",
+        "description": "White multi-purpose vehicle in motion"
+      }
+    ]
+  },
+  "instructions_to_main_agent": {
+    "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+      "Avoid generic 'AI slop' aesthetics. Execute the hybrid theme strictly: Dark Navy/Gold Hero -> Crisp White/Light Pearl Content.",
+      "Use Playfair Display for all main headers, Great Vibes exclusively for 'Radhe Radhe' and decorative accents, and Outfit for readable body text.",
+      "NEVER use Inter or Roboto.",
+      "Never use complete transparent backgrounds for dropdowns, navbars, or widgets sitting over images. Use solid colors or heavy blur (backdrop-blur-xl) with inner borders.",
+      "Create custom UI components where Shadcn falls short for the marketing pages, but rely on Shadcn strictly for the Admin Dashboard and complex Booking Form.",
+      "Every interactive element and key informational text MUST include a 'data-testid' attribute (e.g., 'data-testid=\"book-now-hero-cta\"').",
+      "Implement the specific Booking ID format: 'RRT-YYYY-NNNN'.",
+      "Embed WhatsApp Click-to-Chat functionality and a Sticky Call Button on the client side.",
+      "Configure LocalBusiness Structured Data (JSON-LD) for SEO in the document head.",
+      "Images provided must be used exactly as mapped. Do not substitute with fake placeholder text."
+    ],
+    "icon_library": "@phosphor-icons/react or lucide-react (Prefer Phosphor for a more premium, duotone aesthetic if possible, else stick to Lucide but styled gracefully).",
+    "toast_library": "sonner"
+  }
+}

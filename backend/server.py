@@ -133,6 +133,49 @@ class TourPackageIn(BaseModel):
     image: Optional[str] = ""
     active: Optional[bool] = True
 
+class RoomType(BaseModel):
+    name: str = "Standard Room"
+    price_per_night: float = 0
+    capacity: int = 2
+    amenities: List[str] = []
+
+class Hotel(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    location: str = ""
+    address: str = ""
+    image: str = ""
+    gallery: List[str] = []
+    description: str = ""
+    highlights: List[str] = []
+    amenities: List[str] = []
+    room_types: List[RoomType] = []
+    nearby_attractions: List[str] = []
+    starting_price: float = 0
+    rating: float = 4.5
+    check_in: str = "12:00 PM"
+    check_out: str = "11:00 AM"
+    active: bool = True
+    created_at: str = Field(default_factory=now_iso)
+
+class HotelIn(BaseModel):
+    name: str
+    location: Optional[str] = ""
+    address: Optional[str] = ""
+    image: Optional[str] = ""
+    gallery: Optional[List[str]] = []
+    description: Optional[str] = ""
+    highlights: Optional[List[str]] = []
+    amenities: Optional[List[str]] = []
+    room_types: Optional[List[RoomType]] = []
+    nearby_attractions: Optional[List[str]] = []
+    starting_price: Optional[float] = 0
+    rating: Optional[float] = 4.5
+    check_in: Optional[str] = "12:00 PM"
+    check_out: Optional[str] = "11:00 AM"
+    active: Optional[bool] = True
+
+
 class Review(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     customer_name: str
@@ -317,6 +360,41 @@ async def update_tour(tid: str, data: TourPackageIn, admin: dict = Depends(get_a
 @api.delete("/admin/tours/{tid}")
 async def delete_tour(tid: str, admin: dict = Depends(get_admin)):
     await db.tours.delete_one({"id": tid})
+    return {"ok": True}
+
+# Hotels
+@api.get("/hotels")
+async def list_hotels():
+    return await db.hotels.find({"active": True}, {"_id": 0}).sort("created_at", -1).to_list(200)
+
+@api.get("/hotels/{hid}")
+async def get_hotel(hid: str):
+    doc = await db.hotels.find_one({"id": hid, "active": True}, {"_id": 0})
+    if not doc:
+        raise HTTPException(404, "Hotel not found")
+    return doc
+
+@api.get("/admin/hotels")
+async def admin_list_hotels(admin: dict = Depends(get_admin)):
+    return await db.hotels.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
+
+@api.post("/admin/hotels")
+async def create_hotel(data: HotelIn, admin: dict = Depends(get_admin)):
+    h = Hotel(**data.model_dump())
+    await db.hotels.insert_one(h.model_dump())
+    return h.model_dump()
+
+@api.put("/admin/hotels/{hid}")
+async def update_hotel(hid: str, data: HotelIn, admin: dict = Depends(get_admin)):
+    await db.hotels.update_one({"id": hid}, {"$set": data.model_dump()})
+    doc = await db.hotels.find_one({"id": hid}, {"_id": 0})
+    if not doc:
+        raise HTTPException(404, "Hotel not found")
+    return doc
+
+@api.delete("/admin/hotels/{hid}")
+async def delete_hotel(hid: str, admin: dict = Depends(get_admin)):
+    await db.hotels.delete_one({"id": hid})
     return {"ok": True}
 
 # Reviews
